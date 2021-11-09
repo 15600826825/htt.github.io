@@ -1,0 +1,34 @@
+<view class="modal-dialog" wx:if="{{showModal}}">
+		<view class="modal-title">合伙人信息</view>
+		<view class="modal-content">
+				<view class="inbox">
+						<label class="label">姓名:</label>
+						<input bindinput="lxingInputname" value="{{name}}" />
+				</view>
+				<view class="inbox">
+						<label class="label">手机号:</label>
+						<input bindinput="lxingInputphone" value="{{phone}}" />
+				</view>
+				<view class="inbox">
+						<label class="label">分成比例:</label>
+						<input bindinput="lxingInputmoney" value="{{money}}" />%
+				</view>
+				<view class="page-section">
+					<view class="page-section-title">选择绑定的场地:</view>
+					<view class="weui-cells weui-cells_after-title">
+						<checkbox-group bindchange="checkboxChange">
+							<label class="weui-cell weui-check__label"  wx:key="key" wx:for="{{shechairs}}" wx:key="{{item.address_id}}">
+								<view class="weui-cell__hd">
+									<checkbox value="{{item.address_id}}"/>
+								</view>
+								<view class="weui-cell__bd">{{item.address_name}}</view>
+							</label>
+						</checkbox-group>
+					</view>
+				</view> 
+		</view>
+		<view class="modal-footer">
+				<button class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</button>
+				<button class="btn-confirm" bindtap="sheonConfirm">确定</button>
+		</view>
+</view>

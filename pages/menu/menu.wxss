@@ -1,0 +1,501 @@
+/* pages/menu/menu.wxss */
+page{
+  height: 100%;
+  background-color: #dbdbdb;
+}
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+
+.modal-title {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 45rpx;
+  color: #22cc22;
+  text-align: center;
+  border-bottom: 1px #eee solid;
+}
+
+.modal-content {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 38rpx;
+  letter-spacing: 5rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  font-size: 32rpx;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+}
+
+.btn-confirm {
+  width: 50%;
+  color: #22cc22;
+  text-align: center;
+}
+.chong{
+  display:flex
+}
+.subbtn2{
+  width: 147px;
+	height: 45px;
+  margin-top: 20rpx;
+  background-color:#fff;
+  color: #000;
+  border-radius: 15rpx;
+  font-size:26rpx;
+  line-height: 60rpx;
+}
+.subbtn2 image{
+  margin-top:30rpx;
+}
+.subbtn3 image{
+  margin-top:30rpx;
+}
+.subbtn3{
+  width: 147px;
+	height: 45px;
+  margin-top: 20rpx;
+  background-color:#fff;
+  color: #000;
+  border-radius: 15rpx;
+  font-size:26rpx;
+  line-height: 60rpx;
+}
+.container{
+  margin-top:-30rpx;
+  width: 100%;
+  height: 360rpx;
+}
+.home-swiper {
+  margin-top:-180rpx;
+  width: 95%;
+  height: 360rpx;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+.payline { 
+  width:96%;
+  border-bottom:1px solid #eee;
+  margin:30rpx auto;
+  }
+.title {
+  display: block;
+  text-align: center;
+  color:#110e14;
+  font-size:10pt;
+  margin-top:20rpx;
+  letter-spacing: 5rpx;
+}
+
+.payitem {
+  width:88%;
+  line-height:100rpx;
+  border:2px solid #ececec;
+  border-radius:50rpx;
+  margin:16rpx auto;
+  display:flex;
+  align-items:center;
+  opacity: 0;
+}
+.radiomodel {
+  width:46rpx;
+  height:46rpx;
+  border:2px solid #ececec;
+  border-radius: 50%;
+  margin:0 30rpx;
+}
+ .itemname {
+  font-size:12pt;
+  font-weight:bold;
+  margin-left:20rpx;
+  width: 40%;
+}
+.payitem .payspecific {
+  align-self:flex-end;
+  margin-right: 45rpx;
+  padding-top:1rpx;
+  width: 40%;
+  text-align: right;
+}
+.payitem .payspecific text:first-child {
+  font-size:12pt;
+}
+.payitem .payspecific text:last-child {
+  font-size:11pt;
+}
+.payitem.active {
+  border:6rpx solid #fae017;
+  
+border-image: linear-gradient(to right,#fae017,#fae017 ) 1;
+}
+.payitem.active .radiomodel {
+  background: #fae017;
+  
+}
+.subbtn{
+  margin: 10rpx auto;
+  width: 80%;
+  height: 90rpx;
+  color: white;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  background: #FF9900;
+  border-radius: 5rpx;
+  opacity: 0;
+}
+
+.taocan{
+	width: 100%;
+	height: 100%;
+}
+.tips{
+	margin-top: 40rpx;
+	width: 80%;
+	height: 80rpx;
+	font-size: 28rpx;	
+	text-align: center;
+	opacity: 0;
+}
+.tiaokuan{
+	color: #9955FF;
+}
+.popover-mask-layer {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  z-index: 1002;
+  float: left;
+}
+.coupon-pop-up {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: 1003;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+}
+
+.coupon-pop-up .body {
+  width: 650rpx;
+}
+
+.coupon-pop-up .top-images {
+  width: 130rpx;
+  height: 52rpx;
+  position: relative;
+}
+
+.coupon-pop-up .top-images image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1004;
+}
+
+.coupon-pop-up .top-images .coupon-bg {
+  position: absolute;
+  height: 52rpx;
+  width: 130rpx;
+  z-index: 1003;
+  bottom: 0;
+}
+
+.coupon-pop-up .mid-coupons {
+  width: 650rpx;
+  background-color: #E41B3F;
+  border-radius: 0 0 30rpx 30rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  box-shadow:-5px 5px 10px -4px #222,5px 5px 10px -4px #222;
+}
+
+.mid-coupons .content scroll-view {
+  max-height: 510rpx;
+  min-height: 340rpx;
+  overflow-y: auto;
+}
+
+.coupon-pop-up .mid-coupons .row {
+  height: 170rpx;
+  padding: 20rpx 20rpx 0 20rpx;
+  box-sizing: border-box;
+}
+
+.mid-coupons .row .coupon {
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mid-coupons .row .coupon .left,
+.right {
+  width: 27%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.coupon .left image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.coupon .mid {
+  width: 48%;
+}
+
+.coupon .mid view:first-child {
+  font-size: 30rpx;
+  color: black;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.coupon .mid view:last-child {
+  font-size: 20rpx;
+  color: #C5C5C5;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 4rpx;
+}
+
+.coupon .right {
+  flex-direction: column;
+
+}
+
+.coupon .right view:first-child {
+  color: #FF5D42;
+  font-weight: 700;
+}
+
+.coupon .right view:first-child text {
+  font-size: 50rpx;
+}
+
+.coupon .right .unclaimed {
+  background-color: #FF9327;
+  color: white;
+  margin: 10rpx 15rpx;
+  padding: 2rpx 0 4rpx 0;
+  font-size: 26rpx;
+  border-radius: 50rpx;
+}
+
+.coupon .right .already-received {
+  background-color: #E9E7E8;
+  color: #675D5A;
+  margin: 10rpx 15rpx;
+  padding: 2rpx 0 4rpx 0;
+  font-size: 26rpx;
+  border-radius: 50rpx;
+}
+
+.mid-coupons .bottom-get-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25rpx 0 20rpx 0;
+}
+
+.mid-coupons .bottom-get-btn view {
+  width: 80%;
+  height: 80rpx;
+  border-radius: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background-image: linear-gradient(to bottom, #FFF6D3, #DEB219);
+  color: #B65023;
+}
+
+.coupon-pop-up .bottom-close-btn {
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.coupon-pop-up .bottom-close-btn-child {
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+}
+
+.bottom-close-btn-child image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.coupon-suspension-window {
+  position: fixed;
+  bottom: 300rpx;
+  right: 20rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.coupon-suspension-window image {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.shopping-cart-suspension-window {
+  position: fixed;
+  bottom: 200rpx;
+  right: 20rpx;
+  background-color: white;
+  box-shadow: 0 0 10rpx #888;
+  border-radius: 50%;
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shopping-cart-suspension-window image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.textyan{
+  color:red;
+}
+.textyan2{
+  color:red;
+  font-size:42rpx;
+}
+.anmocss{
+  font-size:24rpx;
+  color:#888
+}
+
+.modal-dialog2 {
+  width: 720rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 40%;
+  z-index: 9999;
+  background: #f9f9f9;
+  border-radius: 36rpx;
+  height: 420rpx;
+}
+
+.modal-title2 {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 40rpx;
+  color: #22cc22;
+  text-align: center;
+  border-bottom: 1px #eee solid;
+}
+
+.modal-content2 {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 38rpx;
+  letter-spacing: 5rpx;
+}
+.modal_item2 text{
+  word-break: break-all;
+}
+
+.modal-footer2 {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  font-size: 32rpx;
+}
+
+.btn-cancel2 {
+  width: 50%;
+  color: #666;
+  text-align: center;
+  font-size: 36rpx;
+}
+
+.btn-confirm2 {
+  width: 50%;
+  color: #22cc22;
+  text-align: center;
+  font-size: 36rpx;
+}
+.modal_item2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 10rpx;
+}
+.shemodal_item_left2{
+  font-size: 30rpx;
+  width: 90%;
+}
+
+.shemodal_item_right2{
+	font-size: 34rpx;
+}
+.modal_item_left2{
+	font-size: 34rpx;
+}
+.modal_item_right2{
+	font-size: 38rpx;
+}
+.blue2{
+	color: #00bfff;
+	text-decoration:underline;
+}
+.divLine{
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+ }

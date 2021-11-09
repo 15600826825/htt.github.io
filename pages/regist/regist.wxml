@@ -1,0 +1,107 @@
+<view class='container bg'>
+    <view class='back' bindtap='backto'>
+        <image src='../../img/back.png' style='width:100%;height:100%'></image>
+    </view>
+        <form class='form' bindsubmit="formSubmit" bindreset="formReset">
+
+            <view class="item" style='margin-top: 60rpx;'>
+                <view class="i_title">姓名:</view>
+				<view class="i_input">
+					<input name="name" maxlength='4' style='width:100%;height:80rpx;' placeholder='请输入您的姓名' placeholder-class='fuckinput' value='' />
+				</view>
+            </view>
+            <view class="item">
+                <view class="i_title">身份证号码:</view>
+				<view class="i_input">
+					<input name="namenum" maxlength='18' type='idcard' style='width:100%;height:80rpx;' placeholder='请输入您的身份证号码' placeholder-class='fuckinput' value=''/>
+				</view>
+            </view>
+            <view class="item">
+                <view class="i_title">住址:</view>
+				<view class="i_input">
+					<input name="dizhi"  style='width:100%;height:80rpx;' placeholder='请输入您居住地址' placeholder-class='fuckinput'value='' />
+				</view>
+            </view>
+            <view class="item">
+                <view class="i_title">选择代理商:</view>
+				<view class="i_input">
+					 <picker bindchange="bindPickerChange" value="{{index_t1}}" range="{{time1}}" id='t1'>
+                   		---{{time1[index_t1]}}---
+               	 </picker>
+				</view>
+            </view>
+            <view class="item">
+                <view class="i_title">选择代理人:</view>
+				<view class="i_input">
+					<picker bindchange="bindPickerChange" value="{{index_t2}}" range="{{time2}}" id='t2'>
+						---{{time2[index_t2]}}---
+					</picker>
+				</view>
+            </view>
+			<view class="item">
+                <view class="i_title">手机号码:</view>
+				<view class="i_input">
+					<input name="phone" maxlength='11' type='number' style='width:100%;height:80rpx;' placeholder='请输入您的手机号码' placeholder-class='fuckinput' bindinput='getInput'/>
+				</view>
+            </view>
+			<view class="item">
+					<button class="yanzheng {{yzmcd?'yzmcd':''}}"   bindtap='getyzm' >
+						获取验证码<block wx:if="{{yzmcd}}">{{cdtime}}s</block>
+					</button>
+			</view>
+			<view class="item">
+                <view class="i_title">验证码:</view>
+				<view class="i_input">
+					<input name="yzm" maxlength='4' type='number'  style='width:100%;height:80rpx;' placeholder='请输入短信验证码' placeholder-class='fuckinput'/>
+				</view>
+            </view>
+            <view class="item">
+                <view class="i_title">银行类型:</view>
+				<view class="i_input">
+					<input name="banktype" maxlength='10' style='width:100%;height:80rpx;' placeholder='例:中国银行、农业银行、建设银行' placeholder-class='fuckinput'  value=''/>
+				</view>
+            </view>
+            <view class="item">
+                <view class="i_title">银行卡号:</view>
+				<view class="i_input">
+					<input name="banknum" type='number' maxlength='19'  style='width:100%;height:80rpx;' placeholder='请输入您的银行卡号码' placeholder-class='fuckinput'  value=''/>
+				</view>
+            </view>
+
+			<view class="item">
+				<view class="i_title">身份证件照:</view>
+				<view class="chooseimg">
+					<button class='imgbtn'
+    type="default" id='1' bindtap="chooseImage" 
+> <icon size="14"type="{{img1==''?'none':'success'}}"></icon>选择正面</button>
+				    <button class='imgbtn'
+    type="default" id='2' bindtap="chooseImage" 
+> <icon size="14"type="{{img2==''?'none':'success'}}"></icon>选择反面</button>
+				</view>
+			</view>
+			<!-- <view class="item">
+				<view class="i_title"></view>
+				<view class="chooseimg">
+					<view class='zjimg'>
+						 <image  style='width:100%;height:100%;' src="{{img1}}" mode="aspectFill"></image>
+					</view>	
+					<view  class='zjimg' >
+						 <image  style='width:100%;height:100%;' src="{{img2}}" mode="aspectFill"></image>
+					</view>
+				</view>
+			</view> -->
+			<view class="item">	
+				<view class="i_title"></view>
+				<view class="chooseimg">
+					<button class='imgbtn'	
+    type="default" id='3' bindtap="chooseImage" 
+> <icon size="14" type="{{img3==''?'none':'success'}}"></icon>选择手持正面</button>
+				</view>
+			</view>
+			<view class='tips'>
+			*点击提交注册，即表示已阅读并同意
+				<text class='tiaokuan' bindtap='goservers'>《使用条款》</text>
+			</view>			
+            <button form-type="submit" class="submit" loading="{{loading}}" disabled="{{loading}}">提交注册</button>
+        </form>
+</view>

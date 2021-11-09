@@ -1,0 +1,50 @@
+<view class='container bg'>
+    <view class='back' bindtap='backto'>
+        <image src='../../../img/back.png' style='width:100%;height:100%'></image>
+    </view>
+	<image src='../../../img/top.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
+    <!-- <button class="show-btn" bindtap="showDialogBtn">弹窗</button> -->
+    <!--弹窗-->
+    <view class="modal-dialog" wx:if="{{showModal}}">
+		<view class="modal-title">修改合伙人信息</view>
+		<view class="modal-content">
+				<view class="inbox">
+						<label class="label">姓名:</label>
+						<input bindinput="lxingInputname" value="{{hehuorenchairs.name}}" />
+				</view>
+				<view class="inbox">
+						<label class="label">手机号:</label>
+						<input bindinput="lxingInputphone" value="{{hehuorenchairs.mobile}}" />
+				</view>
+				<view class="inbox">
+						<label class="label">分成比例:</label>
+						<input bindinput="lxingInputmoney" value="{{hehuorenchairs.moneybili}}" />%
+				</view>
+				<view class="page-section">
+					<view class="page-section-title">选择绑定的场地:</view>
+					<view class="weui-cells weui-cells_after-title">
+						<checkbox-group bindchange="checkboxChange">
+							<label class="weui-cell weui-check__label"  wx:key="key" wx:for="{{shechairs}}">
+								<view class="weui-cell__hd">
+									<checkbox value="{{item.address_id}}"/>
+								</view>
+								<view class="weui-cell__bd">{{item.address_name}}</view>
+							</label>
+						</checkbox-group>
+					</view>
+				</view> 
+		</view>
+		<view class="modal-footer">
+				<button class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</button>
+				<button class="btn-confirm" bindtap="sheonConfirm">确定</button>
+		</view>
+</view>
+    <button class='shetian' bindtap='shemodify' id='{{v.id}}' data-state='{{v.ystatus}}'>添加合伙人</button>
+    <view class='content'   wx:for="{{chairs}}" wx:key="key"  wx:for-item="v" >
+			<view class='nitem'>
+            <view class='iname jiacu orangetxt'>{{v.name}}</view>
+            <button class='ibtn' bindtap='modify' id='{{v.id}}'>详情</button>
+        </view>
+        <view class='kong'></view>
+    </view>
+</view>

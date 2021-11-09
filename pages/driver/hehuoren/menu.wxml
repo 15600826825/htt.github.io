@@ -1,0 +1,104 @@
+<view class='container bg'>
+    <view wx:if="{{ishongbao}}">
+		<!-- 弹窗遮罩层 -->
+		<view wx:if="{{isShowCouponPopUp}}" class="popover-mask-layer"></view>
+		<!-- 优惠劵弹窗 //用hidden而不用wx:if原因是hidden条件不成立时候也会加载图片-->
+		<view hidden="{{!isShowCouponPopUp}}" class="coupon-pop-up" catchtouchmove="onPreventTouchMove" animation="{{animationData}}">
+			<view class="body">
+				<view class="top-images">
+					<!-- 顶部gif背景图 //监听图片加载完后再开启弹窗-->
+					<image bindload="openTheCouponPopUp" src="{{topImages}}"></image>
+				</view>
+				<view class="mid-coupons">
+					<view class="content">
+						<scroll-view scroll-y="true">
+                            <view class="row">
+                                <view class="coupon">
+                                    <view class="mid">
+                                        <view>{{ymianhongbao.coupon_eventname}}</view>
+                                        <view>满{{ymianhongbao.coupon_moneyfull}}元可用</view>
+                                    </view>
+                                    <view class="right">
+                                        <view>￥<text>{{ymianhongbao.coupon_moneyReduction}}</text></view>
+                                    </view>
+                                </view>
+                            </view>
+						</scroll-view>
+					</view>
+					<view class="bottom-get-btn">
+						<view bindtap="getCoupons" id="{{ymianhongbao.coupon_id}}" data-hi="WeChat">领取</view>
+					</view>
+				</view>
+				<view class="bottom-close-btn">
+					<view class="bottom-close-btn-child" bindtap="closeTheCouponPopUp">
+						<image src="{{closeBtnImages}}"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class='back' bindtap='backto'>
+		<image src='../../img/back.png' style='width:100%;height:100%' ></image>
+    </view>
+    <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+    <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-title">服务说明</view>
+        <view class="modal-content">
+            欢迎使用按摩器，为了使用愉快，需要验证您的手机号，谢谢合作!
+        </view>
+        <view class="modal-footer">
+            <button class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</button>
+            <button class="btn-confirm" open-type="getPhoneNumber" bindgetphonenumber="onConfirm">确定</button>
+        </view>
+    </view>
+	<view class='taocan'>
+        <view class="container">
+            <!--轮播图-->
+            <swiper class="home-swiper" indicator-dots="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+                <block wx:for-items="{{lunboData}}" wx:key="key">
+                <swiper-item>
+                    <image src="{{item.imgurl}}" class="slide-image" />
+                </swiper-item>
+                </block>
+            </swiper>
+        </view>
+        <view class="chong">
+            <button class='subbtn2' bindtap='showDialogBtn'>商家中心</button>
+            <button class='subbtn3' bindtap='paymentno'>充值中心</button>
+        </view>
+        <text class="title">{{chaaddress}}  |设备：{{shebeinumber}}</text>
+        <view class="paylist">
+            <view class="payitem {{active==0?'active':''}}" data-idx="0" bind:tap="chooseItem" animation="{{moveData1}}">
+                <view class="radiomodel"></view>
+                <text class="itemname">身心愉快</text>
+                <view class="payspecific">
+                    <text>{{chair.time1<60?chair.time1:chair.time1/60}}</text>
+                    <text>{{chair.time1<60?'分钟':'小时'}}/{{chair.price1}}元</text>
+                </view>
+            </view>
+            <view class="payitem {{active==1?'active':''}}" data-idx="1" bind:tap="chooseItem" animation="{{moveData2}}">
+                <view class="radiomodel"></view>
+                <text class="itemname">轻松推拿</text>
+                <view class="payspecific">
+                    <text>{{chair.time2<60?chair.time2:chair.time2/60}}</text>
+                    <text>{{chair.time2<60?'分钟':'小时'}}/{{chair.price2}}元</text>
+                </view>
+            </view>
+			 <view class="payitem {{active==2?'active':''}}" data-idx="2" bind:tap="chooseItem" animation="{{moveData3}}">
+                <view class="radiomodel"></view>
+                <text class="itemname">背部按摩</text>
+                <view class="payspecific">
+                    <text>{{chair.time3<60?chair.time3:chair.time3/60}}</text>
+                    <text>{{chair.time3<60?'分钟':'小时'}}/{{chair.price3}}元</text>
+                </view>
+            </view>
+            <view>
+            </view>
+        </view>
+		<view class='tips' animation="{{moveData5}}">
+        *点击确定，即表示已阅读并同意
+       		 <text class='tiaokuan' bindtap='goservers'>《使用条款》</text>
+    	</view>
+		<button class='subbtn' bindtap='payment' loading="{{loading}}" disabled="{{loading}}" animation="{{moveData4}}">{{loading?'正在支付':'确 定'}}</button>
+    </view>
+</view>

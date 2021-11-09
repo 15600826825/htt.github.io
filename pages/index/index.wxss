@@ -1,0 +1,94 @@
+/**index.wxss**/
+page{
+	height: 100%;
+}
+.title{
+	margin: 120rpx auto;
+    width: 80%;
+    height: 90rpx;
+    color: white;
+	line-height: 90rpx;
+    text-align: center;
+    font-size: 32rpx;
+	background: linear-gradient(to bottom, #00BBFF, #9955FF);
+	border-radius: 50rpx 50rpx;
+	letter-spacing: 5rpx;
+	opacity: 0;
+}
+.biaoti1{
+	font-size: 50rpx;
+	font-weight: 900;
+	letter-spacing: 30rpx;
+	color: #00BBFF;
+	opacity: 0;
+}
+.biaoti2{
+	margin-top: 120rpx;
+	font-size: 40rpx;
+	letter-spacing: 10rpx;
+	color: #00BBFF;
+	opacity: 0;
+}
+.biaoti2 image{
+  width: 192rpx;
+  height: 192rpx;
+}
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+
+.modal-title {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 45rpx;
+  color: #22cc22;
+  text-align: center;
+  border-bottom: 1px #eee solid;
+}
+
+.modal-content {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 38rpx;
+  letter-spacing: 5rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  font-size: 32rpx;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+}
+
+.btn-confirm {
+  width: 50%;
+  color: #22cc22;
+  text-align: center;
+}

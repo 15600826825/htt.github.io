@@ -1,0 +1,80 @@
+<view class='container1'>
+    <view class='back2' bindtap='backto'>
+        <image src='../../img/back.png' style='width:68rpx;height:68rpx' ></image>
+        <view class='zichang'>总资产</view>
+	</view>
+
+    <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+    <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-title">提现</view>
+        <view class="modal-content">
+            <view class='modal_item'>
+				<view class='modal_item_left'>提现账号:{{enc_bank_no}}</view>
+				<view class='modal_item_left'>银行类型:{{bank_name}}</view>
+				<view class='modal_item_left'>银行卡归属人:{{enc_true_name}}</view>
+				<view class='modal_item_left heng'>提现金额: <input class='input' bindinput='getinput' name="name" maxlength='4' type='number' auto-focus value='{{fuckrmb}}' /> 元</view>
+            </view>
+        </view>
+        <view class="modal-footer">
+            <button class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</button>
+            <button class="btn-confirm" bindtap="onConfirm">确定</button>
+        </view>
+    </view>
+
+    <!-- <view class="userinfo">
+        <view class='userinfo-avatar'>
+            <open-data type="userAvatarUrl" class="icon"></open-data>
+        </view>
+        <open-data class='userinfo-nickname' type="userNickName"></open-data>
+    </view> -->
+    <view class="xianmoney">
+        <view class='table'>
+            <view class='title'>账户余额</view>
+            <view class='money'>¥{{ye}}</view>
+        </view>
+        <view class='btn'> 
+            <button class='btn_b1' bindtap='getmoney'>刷新</button>
+            <button class='btn_b2' bindtap='fuckbeatch'>提现</button>
+        </view>
+    </view>
+    
+    <view wx:if="{{customertype==2}}" class="wode_item_wrap">
+        <view class="wode_item" bindtap='goto' id='tongji'>
+            <image src='../../img/dingdanguanli.png' style='width:168rpx;height:168rpx' ></image>
+            <span>经营统计</span>
+        </view>
+    </view>	
+    <view wx:if="{{customertype==1}}" class="wode_item_wrap">
+        <view class="wode_item" bindtap='goto' id='device'>
+            <image src='../../img/shebeiguanli.png' style='width:138rpx;height:138rpx' ></image>
+            <span>设备管理</span>
+        </view>
+        <view class="wode_item" bindtap='goto' id='order'>
+            
+            <image src='../../img/dingdanguanli.png' style='width:138rpx;height:138rpx' ></image>
+            <span>订单管理</span>
+        </view>
+        <view class="wode_item" bindtap='goto' id='changdi'> 
+            
+            <image src='../../img/weizhichangdi.png' style='width:138rpx;height:138rpx' ></image>
+            <span>场地管理</span>
+        </view>
+        
+        <view class="wode_item" bindtap='goto' id='tongji'>
+            
+            <image src='../../img/jingyingguanli.png' style='width:138rpx;height:138rpx' ></image>
+            <span>经营统计</span>
+        </view>
+        <view class="wode_item" bindtap='goto' id='youhui'>
+            
+            <image src='../../img/coupon.png' style='width:138rpx;height:138rpx' ></image>
+            <span>优惠券</span>
+        </view>
+        <view class="wode_item" bindtap='goto' id='hehuoren'>
+            
+            <image src='../../img/hehuoren.png' style='width:138rpx;height:138rpx' ></image>
+            <span>合伙人</span>
+        </view>
+    </view>
+    	
+</view>

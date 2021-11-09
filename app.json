@@ -1,0 +1,31 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/fact/fact",
+		"pages/regist/regist",
+		"pages/driver/driver",
+		"pages/driver/devices/devices",
+		"pages/driver/order/order",
+		"pages/driver/tongji/tongji",
+		"pages/driver/youhui/youhui",
+		"pages/driver/hehuoren/hehuoren",
+		"pages/driver/changdi/changdi",
+		"pages/driver/hehuoren/thehuoren/thehuoren",
+		"pages/menu/menu",
+		"pages/menu/service/service",
+		"pages/regist/service/service"
+	],
+	"requiredBackgroundModes": [
+		"audio"
+	],
+	"window": {
+		"navigationStyle": "custom"
+	},
+	"plugins": {
+		"WechatSI": {
+			"version": "0.2.3",
+			"provider": "wx069ba97219f66d99"
+		}
+	},
+	"sitemapLocation": "sitemap.json"
+}

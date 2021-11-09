@@ -1,0 +1,16 @@
+page{
+	min-height: 100%;
+}
+.title{
+	width:90%;
+	text-align: left; 
+	font-size: 36rpx;
+	margin-top: 40rpx;
+	height: 40rpx;
+}
+.duanluo{
+	width:90%;
+	text-align: left; 
+	font-size: 32rpx;
+	margin-top: 10rpx;
+}

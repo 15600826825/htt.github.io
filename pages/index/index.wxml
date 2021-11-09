@@ -1,0 +1,24 @@
+<view class='container bg'>
+    <!-- <button class="show-btn" bindtap="showDialogBtn">弹窗</button> -->
+    <!--弹窗-->
+    <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+    <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-title">服务说明</view>
+        <view class="modal-content">
+            欢迎使用按摩器，为了核对您的账号信息，需要验证您的手机号，谢谢合作!
+        </view>
+        <view class="modal-footer">
+            <button class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</button>
+            <button class="btn-confirm" open-type="getPhoneNumber" bindgetphonenumber="onConfirm">确定</button>
+        </view>
+    </view>
+	<!-- <view class='biaoti1' animation="{{moveData3}}">欢迎使用按摩椅</view> -->
+	<view class='biaoti2' animation="{{moveData4}}"><image src='/img/lanya.png'></image></view>
+	<view style=''>
+        <text>您好：\r\n</text>
+        <text>请打开手机蓝牙后选择套餐，\r\n</text>
+        <text>支付成功后点击：完成\r\n</text>
+        <text>即可自动开机\r\n</text>
+    </view>
+	<!-- <view class='title' bindtap='showDialogBtn' animation="{{moveData2}}">注册加盟</view> -->
+</view>

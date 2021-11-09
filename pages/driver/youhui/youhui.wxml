@@ -1,0 +1,172 @@
+<view>
+	<view class='back' bindtap='backto'>
+		<image src='../../../img/back.png' style='width:100%;height:100%' ></image>
+	</view>
+	<view class='zjuan'>支付立减券</view>
+<!--pages/detail/detail.wxml-->
+	<view class="swiper-tab">
+		状态
+		<view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">全部</view>
+		<view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">投放中</view>
+		<view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">已完成</view>
+	</view>
+	<swiper class="swiperall" current="{{currentTab}}" duration="300" bindchange="swiperTab">
+		<swiper-item >
+			<view class='content'   wx:for="{{quanresult}}" wx:for-index="index" wx:key="key"  wx:for-item="v" >
+        <view class='item'>
+            <view class='left jiacu hei'>活动名称</view>
+            <view class="right jiacu free">{{v.coupon_eventname}}</view>
+        </view>
+        <view class='item'>
+            <view class='left'>使用门槛</view>
+            <view class='right'>{{v.coupon_moneyfull}}元</view>
+        </view>
+        <view class='item'>
+            <view class='left'>优惠金额</view>
+            <view class='right'>{{v.coupon_moneyReduction}}元</view>
+        </view>
+        <view class='item'>
+            <view class='left'>活动效果</view>
+            <view class='right'>已赠送{{v.coupon_use}}张，使用{{v.coupon_use}}张</view>
+				</view>
+				<view class='item'>
+            <view class='left'>开始日期/结束日期</view>
+            <view class='right'>{{v.coupon_eventstarttime}}/{{v.coupon_eventstoptime}}</view>
+				</view>
+      </view>
+		</swiper-item>
+		<swiper-item>
+			<view class='content'   wx:for="{{tquanresult}}" wx:for-index="index" wx:key="key"  wx:for-item="v" >
+					<view class='item'>
+							<view class='left jiacu hei'>活动名称</view>
+							<view class="right jiacu free">{{v.coupon_eventname}}</view>
+					</view>
+					<view class='item'>
+							<view class='left'>使用门槛</view>
+							<view class='right'>{{v.coupon_moneyfull}}元</view>
+					</view>
+					<view class='item'>
+							<view class='left'>优惠金额</view>
+							<view class='right'>{{v.coupon_moneyReduction}}元</view>
+					</view>
+					<view class='item'>
+							<view class='left'>活动效果</view>
+							<view class='right'>已赠送{{v.coupon_use}}张，使用{{v.coupon_use}}张</view>
+					</view>
+					<view class='item'>
+							<view class='left'>开始日期/结束日期</view>
+							<view class='right'>{{v.coupon_eventstarttime}}/{{v.coupon_eventstoptime}}</view>
+					</view>
+			</view>
+		</swiper-item>
+		<swiper-item>
+			<view class='content'   wx:for="{{gquanresult}}" wx:for-index="index" wx:key="key"  wx:for-item="v" >
+					<view class='item'>
+							<view class='left jiacu hei'>活动名称</view>
+							<view class="right jiacu free">{{v.coupon_eventname}}</view>
+					</view>
+					<view class='item'>
+							<view class='left'>使用门槛</view>
+							<view class='right'>{{v.coupon_moneyfull}}元</view>
+					</view>
+					<view class='item'>
+							<view class='left'>优惠金额</view>
+							<view class='right'>{{v.coupon_moneyReduction}}元</view>
+					</view>
+					<view class='item'>
+							<view class='left'>活动效果</view>
+							<view class='right'>已赠送{{v.coupon_use}}张，使用{{v.coupon_use}}张</view>
+					</view>
+					<view class='item'>
+							<view class='left'>开始日期/结束日期</view>
+							<view class='right'>{{v.coupon_eventstarttime}}/{{v.coupon_eventstoptime}}</view>
+					</view>
+			</view>
+		</swiper-item>
+	</swiper>
+	<button class='subbtn2' bindtap='fuckbeatch'>新建活动</button>
+	
+	<view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-title">创建满减券活动</view>
+        <view class="modal-content">
+            <view class='modal_item'>
+							<view class="inbox">
+								<label class="label">活动类型:</label>
+								<input bindinput="lxingInput" value="{{username}}" />
+							</view>
+							<view class="divLine"></view>
+							<view class="inbox">
+								<label class="label">活动名称:</label>
+								<input bindinput="mchengInput" value="{{username}}" />
+							</view>
+							<view class="divLine"></view>
+							<view class="inbox">
+								<label class="label">发放总张数:</label>
+								<input bindinput="zzhangshuInput" value="{{username}}" />张
+							</view>
+							<view class="divLine"></view>
+							<view class="inbox">
+								<label class="label">每人可领取张数:</label>
+								<input bindinput="kzhangshuInput" value="{{username}}" />张
+							</view>
+							<view class="divLine"></view>
+							<view class="inbox">
+								<label class="label">券类型:</label>
+								<radio-group class="radiotype" bindchange="listenerRadioGroup">
+									<label style="display: flex" wx:key="key" wx:for-items="{{array}}">
+										<radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+									</label>
+								</radio-group>
+							</view>
+							<view class="divLine"></view>
+							<view class="inbox">
+								赠送一张满减券，满:<input bindinput="manInput" value="{{username}}" />元减:
+								<input bindinput="jianInput" value="{{username}}" />
+							</view>
+							<view class="divLine"></view>
+							<view class="inbox">
+								券有效期，领取后:<input bindinput="yxiaoInput" value="{{username}}" />天内有效
+							</view>
+							<view class='modal_item_left'>
+								<view class="divLine"></view>
+								自动派发<switch class='switchtype' type="switch" checked="{{isChecked}}" bindchange="listenerSwitch"/>
+							</view>
+								<view wx:if="{{shechangdi}}" class="inbox">
+									<label class="label">自动派发场地:</label>
+									<view class='modal_item'>
+											<picker name="picker_hx"  value="{{address_id}}" range="{{shechairs}}" range-key="{{'address_name'}}"  bindchange="bindPickerChange2"  >
+													<view class="picker" >
+													{{shechairs[hx_index].address_name}} 
+													</view>
+											</picker>
+									</view>
+								</view>
+							<view class="divLine"></view>							
+							<view class='modal_item_left'>活动开始日期
+								<picker mode="date" value="{{date1}}" start="{{date1}}" end="2050-01-01" bindchange="bindDateChange1">  
+									<view class="picker">  
+										{{date1}}  
+									</view>  
+								</picker>
+							</view>
+							<view class="divLine"></view>
+							<view class='modal_item_left'>活动结束日期
+							<picker mode="date" value="{{date2}}"  end="{{date2}}" bindchange="bindDateChange2">  
+									<view class="picker">  
+										{{date2}}  
+									</view>  
+								</picker> 
+							</view>
+							<view class="divLine"></view>
+							<view class="inbox">
+								<label class="label">备注:</label>
+								<input bindinput="bzhuInput" value="{{username}}" />
+							</view>
+            </view>
+				</view>
+        <view class="modal-footer">
+            <button class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</button>
+            <button class="btn-confirm" bindtap="onConfirm">确定</button>
+        </view>
+    </view>
+</view>
